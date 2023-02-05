@@ -1,6 +1,8 @@
 import os
+import random
 import tkinter as tk
 from tkinter import *
+from datetime import date
 
 from PyToExcel import *
 from CsvToPy import *
@@ -8,33 +10,49 @@ from CsvToPy import *
 order_dict = {}
 
 def find_csv_file():
+    global order_dict
+
     file = getFile()
     if file == -1:
         print("Uh oh")
     else:
         order_dict = readFile(file)
-        print(order_dict["Case GTIN"])
+        export_spreadsheet(order_dict)
 
-def export_spreadsheet():
+def export_spreadsheet(order_dict):
+    today = date.today().strftime("%y%b")
+
     # Element variables
     gtin = ""
     expiration = ""
     batch = ""
-    serial = ""
-    quantity = 0
+    sscc = ""
+    serial = "179CPM" # Constant used for serial, but can be replaced by whatever generation system
+
     # Pull out GTIN and Expiration
     gtin = order_dict["Case GTIN"]
     expiration = format_expiration_date(order_dict["Expiration"])
-    quantity = int(order_dict["Quantity"])
+    sscc = order_dict["SSCC"]
     # Generate Serial and Batch/Lot
-    batch = "" # TODO: Generate random batch number
-    for x in quantity:
-        # Generate serial number
-        print("Working on it")
+    batch = str(today) + expiration
+    print_case_ss(gtin, serial, batch, expiration, sscc)
+    
 
 def format_expiration_date(date):
     # Format MM-DD-YY into YYMMDD
-    print("Working on it")
+    broken_string = []
+    result = ""
+
+    # Remove any new line chars
+    if date.__contains__("\n"):
+        date = date.replace("\n", "")
+
+    if date.__contains__("-"):
+        broken_string = date.split("-")
+    else: # Assuming using backslashes
+        broken_string = date.split("/")
+    result = broken_string[2] + broken_string[0] + broken_string[1]
+    return result
 
 
 if __name__ == '__main__':
@@ -43,11 +61,9 @@ if __name__ == '__main__':
     window.resizable(False, False)
     window.geometry("250x250")
     window.title("TITLE HERE")
-    # Set up buttons
-    input = Button(window, text="Input CSV", command=find_csv_file)
-    export = Button(window, text="Output Spreadsheet", command=export_spreadsheet)
+    # Set up button
+    input = Button(window, text="CSV to Bartender Excel", command=find_csv_file)
     # Pack
-    input.pack(side=TOP, expand=1)
-    export.pack(side=BOTTOM, expand=5)
+    input.pack(expand=1)
     # Run loop
     window.mainloop()

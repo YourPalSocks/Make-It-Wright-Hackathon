@@ -10,11 +10,11 @@ import openpyxl
 # Serial: One flow of alphanumeric (string or int) ("1QH001005")
 # Batch/Lot: One flow of alphanumeric (string or int) ("TRT001")
 # Date: YYMMDD
-def print_case_ss(gtin, serial, batch, expiration):
+def print_case_ss(gtin, serial, batch, expiration, sscc):
     # Vars Here
-    bt_headers = ["GTIN", "Serial #", "Batch/Lot", "Expiration", "GS1 Element"]
+    bt_headers = ["GTIN", "Serial #", "Batch/Lot", "Expiration", "GS1 Element", "SSCC"]
     gs1_string = create_dsgtin_element_string(expiration, gtin, serial, batch)
-    data_vals = [gtin, serial, batch, expiration, gs1_string]
+    data_vals = [gtin, serial, batch, expiration, gs1_string, sscc]
     df = DataFrame([data_vals], columns=bt_headers)
 
     file_path = get_save_path()
@@ -33,4 +33,7 @@ def get_save_path():
 def create_dsgtin_element_string(date, gtin, serial, batch_lot):
     ret = ""
     ret += "(17)" + str(date) + "(01)" + str(gtin) + "(21)" + str(serial) + "(10)" + str(batch_lot)
+    # Remove any new line codes
+    if ret.__contains__("\n"):
+        ret = ret.replace("\n", "")
     return ret
