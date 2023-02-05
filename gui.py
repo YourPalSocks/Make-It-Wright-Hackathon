@@ -16,17 +16,6 @@ def main():
             t.insert(END, f"{info[0]} : {info[1]}\n")
 
     t.pack()
-
-
-
-    # button = Button(root, text="Select File")
-    # button.pack()
-    # end = Button(root, text="END")
-    # end.pack()
-    #
-    # root.bind("<ButtonPress-1>", on_click)
-    # root.bind("<ButtonPress-2>", close)
-
     root.mainloop()
 
 

@@ -34,10 +34,11 @@ def getFile():
     currFile = filedialog.askopenfile(parent=root, initialdir=currDir, title='Please select a file.')
 
     if currFile:
-        print(f"You chose {currFile}")
+        print(f"You chose {currFile.name} and order.txt was created from it.")
 
     return currFile
 
 
-file = getFile()
-data = readFile(file)
+if __name__ == '__main__':
+    file = getFile()
+    data = readFile(file)
