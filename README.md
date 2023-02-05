@@ -13,3 +13,8 @@ Make it Wright Hackathon Project
 5. This database can be linked in Bartender to fill out various fields
 
 ### Bartender
+1. Open the desired label template in Bartender.
+2. Link the fields in the .xlsx (database) file created to those in the label template.
+3. Create the RFID encodings using the Avery TDS Encoder/Decoder tool.
+4. Once that is linked to the RFID object in template, the label is ready to print.
+
