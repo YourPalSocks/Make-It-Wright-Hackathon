@@ -1,0 +1,32 @@
+First Name, Nyota
+Last Name, Uhura
+Street Address, 123 Aerie Way
+City, Lofton
+State, WI
+Zip, 01234
+Phone, 999 -999-8888
+Email, nyotauhura@example.com
+Company Prefix GS1US, 081005593
+Business Location GLN, 0810055931293
+Case Example Drug, Pills
+Case GTIN, 10810055939197
+Bottle GTIN, 0810055939190
+Description, Example Drugs
+Dose, 100mg
+Number in Bottle, 100
+Unit of Measure, Each
+Quantity, 12
+Current SSCC number, 081005593812000015
+Customer, Real RX Distributors
+First Name, Bob
+Last Name, Green
+Street Address, 740 Forest St
+City, Kalamazoo
+State, MI
+Zip, 49007
+Phone, 123-999-1234
+Email, bobgreen@example.com
+Coordinates, 42.30, -85.59
+Company Prefix GS1US, 0850020317
+Business Location GLN, 0850020317912
+Dock GLN, 0850020317929
