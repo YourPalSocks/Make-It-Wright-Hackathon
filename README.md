@@ -18,3 +18,7 @@ Make it Wright Hackathon Project
 3. Create the RFID encodings using the Avery TDS Encoder/Decoder tool.
 4. Once that is linked to the RFID object in template, the label is ready to print.
 
+### Reader tool
+# Tool to display the order information to the user
+1. Run ReadFile.py - this will create a new file called "order.txt"
+2 Run gui.py to have the contents of order.txt displayed in a graphical interface
