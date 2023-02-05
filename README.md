@@ -20,5 +20,6 @@ Make it Wright Hackathon Project
 
 ### Reader tool
 # Tool to display the order information to the user
-1. Run ReadFile.py - this will create a new file called "order.txt"
-2 Run gui.py to have the contents of order.txt displayed in a graphical interface
+1. Run ReadFile.py
+2. Choose the correct csv file to pull data from
+3. Run gui.py to have the contents of order.txt displayed in a graphical interface
