@@ -23,3 +23,5 @@ Make it Wright Hackathon Project
 1. Run ReadFile.py
 2. Choose the correct csv file to pull data from
 3. Run gui.py to have the contents of order.txt displayed in a graphical interface
+### Demo Video
+[DEMO](https://www.youtube.com/watch?v=g-MYScg8j3s)
