@@ -26,7 +26,7 @@ def print_case_ss(gtin, serial, batch, expiration):
 
 # Open file dialogue and return valid path, return fail condition (-1) otherwise
 def get_save_path():
-    file_path = filedialog.asksaveasfilename(confirmoverwrite=True, defaultextension=".xlsx")
+    file_path = filedialog.asksaveasfilename(confirmoverwrite=True, defaultextension=".xlsx", initialdir=os.getcwd())
     return file_path
 
 # Creates DSGTIN+ GS1 element string from date, gtin, serial, batch/lot
